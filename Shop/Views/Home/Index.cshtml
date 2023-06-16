@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Slider-->
+<div class="slider-area">
+    <div class="hero-slider-wrapper">
+        <!--Single Slider-->
+        <div class="single-slider slider-height-1 bg-img d-flex" data-bg-imaga="~/assets/images/slider-image/sample-1.jpg">
+            <img src="~/assets/images/slider-image/sample-1.jpg" />
+        </div>
+        <div class="single-slider slider-height-1 bg-img d-flex" data-bg-imaga="~/assets/images/slider-image/sample-2.jpg">
+            <img src="~/assets/images/slider-image/sample-2.jpg" />
+        </div>
+        <!--End Single Slider-->
+    </div>
+</div>
+<!--End Slider-->
+<!--Thumb Category Area-->
+<div class="thumb-category-area ptb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="thumb-category-slider slider-nav-style-1">
+                <div class="thumb-slider-inner">
+                    <div class="thumb-category">
+                        <a href="@Url.Action("SPDanhMuc","SanPham",new {id=3})">
+                            <img src="~/assets/images/thumb-image/thumb-1.jpg" />
+                        </a>
+                        <div class="thumb-category-desc">
+                            <h4>
+                                <a href="@Url.Action("SPDanhMuc","SanPham",new {id=3})">
+                                    Bird Food
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="thumb-slider-inner">
+                    <div class="thumb-category">
+                        <a href="@Url.Action("SPDanhMuc","SanPham",new {id=2})">
+                            <img src="~/assets/images/thumb-image/thumb-2.jpg" />
+                        </a>
+                        <div class="thumb-category-desc">
+                            <h4>
+                                <a href="@Url.Action("SPDanhMuc","SanPham",new {id=2})">
+                                    Dog Food
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="thumb-slider-inner">
+                    <div class="thumb-category">
+                        <a href="@Url.Action("SPDanhMuc","SanPham",new {id=1})">
+                            <img src="~/assets/images/thumb-image/thumb-3.jpg" />
+                        </a>
+                        <div class="thumb-category-desc">
+                            <h4>
+                                <a href="@Url.Action("SPDanhMuc","SanPham",new {id=1})">
+                                    Cat Food
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="thumb-slider-inner">
+                    <div class="thumb-category">
+                        <a href="@Url.Action("SPDanhMuc","SanPham",new {id=3})">
+                            <img src="~/assets/images/thumb-image/thumb-1.jpg" />
+                        </a>
+                        <div class="thumb-category-desc">
+                            <h4>
+                                <a href="@Url.Action("SPDanhMuc","SanPham",new {id=3})">
+                                    Wild Bird
+                                </a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Thumb Category Area-->
+<!--Category Tab Slider Area-->
+<div class="category-tab-slider-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>
+                        SẢN PHẨM BÁN CHẠY
+                    </h2>
+                </div>
+                <div class="category-tab-block">
+                    <div class="category-tab">
+                        <!--Tab Content-->
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <!--Tab Slider-->
+                                <div class="arrival-slider slider-nav-style-1">
+                                    @Html.Action("SanPhamBanChay", "Home")
+                                </div>
+                                <!--End Tab Slider-->
+                            </div>
+                        </div>
+                        <!--End Tab Content-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Categoryy Tab Slider Area-->
+<!--Banner Area Start-->
+<div class="banner-area overflow-hidden pt-100px pb-100px">
+    <div class="row">
+        <div class="col-md-6 mb-lm-30px">
+            <div class="banner-wrapper">
+                <a href="">
+                    <img src="~/assets/images/banner-image/1.jpg" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="banner-wrapper">
+                <a href="">
+                    <img src="~/assets/images/banner-image/2.jpg" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Banner-Area-->
+<!--Banner Area-->
+<div class="banner-area overflow-hidden">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner-wrapper">
+                <a href="">
+                    <img src="~/assets/images/banner-image/16.jpg" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Banner Area-->
+<!--Brand Area-->
+<div class="brand-area pb-100px">
+    <div class="container">
+        <div class="brand-slider slider-nav-style-1">
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/1.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/2.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/3.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/1.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/4.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/5.jpg" />
+                </a>
+            </div>
+            <div class="brand-slider-item">
+                <a href="#">
+                    <img class="img-responssive" src="~/assets/images/brand-logo/6.jpg" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Brand Area-->

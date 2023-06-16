@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Shop.Models.DONDATHANG>
+
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>HoaDon</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaygiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tinhtranggiaohang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ghichu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongGia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaydat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaygiao)
+        </td>
+        <td>
+            @if (item.Tinhtranggiaohang == "giao that bai")
+            {
+                <span>Giao thất bại</span>
+            }
+            else if (item.Tinhtranggiaohang == "giao thanh cong")
+            {
+                <span>Giao thành công</span>
+            }
+            else if (item.Tinhtranggiaohang == "dang giao")
+            {
+                <span>Đang giao</span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ghichu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongGia)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "ChiTietHoaDon", new { id = item.MaDonHang })
+            @Html.ActionLink("Edit", "EditHoaDon", new { id = item.MaDonHang })
+        </td>
+    </tr>
+}
+
+</table>

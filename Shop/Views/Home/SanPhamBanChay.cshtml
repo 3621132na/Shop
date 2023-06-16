@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Shop.Models.SANPHAM>
+@foreach (var i in Model)
+{
+    <div class="arrval-slider-item">
+        <article class="list-product text-left">
+            <div class="product-inner">
+                <div class="img-block">
+                    <a href="@Url.Action("chitietsanpham", "SanPham", new {id=i.MaSP})" class="thumbnail">
+                        <img class="first-img" src="@i.Anhbia" alt="" />
+                        <img class="second-img" src="@i.Anhbia" alt="" />
+                    </a>
+                    <div class="add-to-link">
+                        <ul>
+                            <li>
+                                <a class="quick-view" href="@Url.Action("chitietsanpham","SanPham",new {id=i.MaSP})" data-link-action="quickview" title="Quick view" data-toggle="modal">
+                                    <i class="las la-search">
+                                    </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="product-flag">
+                        <li class="new">
+                            New
+                        </li>
+                    </ul>
+                </div>
+                <div class="product-decs">
+                    <h2>
+                        <a href="@Url.Action("chitietsanpham","SanPham",new {id=i.MaSP})" class="product-link">
+                            @i.TenSP
+                        </a>
+                    </h2>
+                    <div class="pricing-meta">
+                        <ul>
+                            <li class="current-price">
+                                @i.Giaban
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cart-btn">
+                    <a href="@Url.Action("ThemGioHang", "GioHang", new {@iMaSP=i.MaSP,@strURL=Request.Url.ToString()})" class="add-to-curt" title="Add to cart">
+                        <i class="las la-baby-carriage">
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+}

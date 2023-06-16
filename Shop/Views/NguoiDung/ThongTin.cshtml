@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "ThongTin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="customer-info-title" style="text-align:center">Thông Tin Khách Hàng</h2>
+<table class="customer-info-table">
+    <tr>
+        <td>Tên đăng nhập:</td>
+        <td>@Model.Taikhoan</td>
+    </tr>
+    <tr>
+        <td>Họ và tên:</td>
+        <td>@Model.HoTen</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ:</td>
+        <td>@Model.DiachiKH</td>
+    </tr>
+    <tr>
+        <td>Điện thoại:</td>
+        <td>@Model.DienthoaiKH</td>
+    </tr>
+    <tr>
+        <td>Ngày sinh:</td>
+        <td>@Model.Ngaysinh.ToString("dd/MM/yyyy")</td>
+    </tr>
+</table>
+
+<style>
+    .customer-info-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .customer-info-table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+        .customer-info-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+            .customer-info-table td:first-child {
+                font-weight: bold;
+                width: 30%;
+            }
+
+            .customer-info-table td:last-child {
+                width: 70%;
+            }
+</style>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Shop.Models.CHITIETDONTHANG>
+
+@{
+    ViewBag.Title = "Xacnhandonhang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đơn hàng của quý khách đã được chúng tôi ghi nhận. Chúng tôi sẽ liên hệ quý khách trong thời gian sớm nhất và giao hàng đúng hẹn</h2>
+
+
+<table style="text-align: center; margin: 0 auto;">
+    <tr>
+        <th>Tên sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
+    </tr>
+    @foreach (var item in ViewBag.ChiTietDonHang)
+    {
+        <tr>
+            <td>@item.TenSP</td>
+            <td>@item.Soluong</td>
+            <td>@item.Dongia</td>
+            <td>@item.ThanhTien</td>
+        </tr>
+    }
+    <tr>
+        <th>Tổng: </th>
+        <td>@ViewBag.Tongtien</td>
+    </tr>
+</table>
+
+<p style="text-align:center">
+    @Html.ActionLink("VỀ TRANG CHỦ", "Index", "Home")
+</p>
