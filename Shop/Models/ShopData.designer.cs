@@ -51,6 +51,9 @@ namespace Shop.Models
     partial void InsertNHACUNGCAP(NHACUNGCAP instance);
     partial void UpdateNHACUNGCAP(NHACUNGCAP instance);
     partial void DeleteNHACUNGCAP(NHACUNGCAP instance);
+    partial void InsertResetToken(ResetToken instance);
+    partial void UpdateResetToken(ResetToken instance);
+    partial void DeleteResetToken(ResetToken instance);
     partial void InsertSANPHAM(SANPHAM instance);
     partial void UpdateSANPHAM(SANPHAM instance);
     partial void DeleteSANPHAM(SANPHAM instance);
@@ -81,7 +84,7 @@ namespace Shop.Models
 		}
 
         public ShopDataDataContext():
-        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ShopConnectionString5"].ConnectionString,mappingSource)
+        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["ShopConnectionString"].ConnectionString, mappingSource)
         {
         }
 
@@ -138,6 +141,14 @@ namespace Shop.Models
 			get
 			{
 				return this.GetTable<NHACUNGCAP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ResetToken> ResetTokens
+		{
+			get
+			{
+				return this.GetTable<ResetToken>();
 			}
 		}
 		
@@ -1461,6 +1472,140 @@ namespace Shop.Models
 		{
 			this.SendPropertyChanging();
 			entity.NHACUNGCAP = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ResetToken")]
+	public partial class ResetToken : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Token;
+		
+		private System.DateTime _ExpiryDateTime;
+		
+		private int _UserId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTokenChanging(string value);
+    partial void OnTokenChanged();
+    partial void OnExpiryDateTimeChanging(System.DateTime value);
+    partial void OnExpiryDateTimeChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    #endregion
+		
+		public ResetToken()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Token", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Token
+		{
+			get
+			{
+				return this._Token;
+			}
+			set
+			{
+				if ((this._Token != value))
+				{
+					this.OnTokenChanging(value);
+					this.SendPropertyChanging();
+					this._Token = value;
+					this.SendPropertyChanged("Token");
+					this.OnTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiryDateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime ExpiryDateTime
+		{
+			get
+			{
+				return this._ExpiryDateTime;
+			}
+			set
+			{
+				if ((this._ExpiryDateTime != value))
+				{
+					this.OnExpiryDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._ExpiryDateTime = value;
+					this.SendPropertyChanged("ExpiryDateTime");
+					this.OnExpiryDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL")]
+		public int UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

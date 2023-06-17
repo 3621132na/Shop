@@ -1,96 +1,135 @@
-﻿<style tyle="text/css">
-    .dangky {
-        margin-top: 20px;
-    }
-</style>
-@{
+﻿@{
     ViewBag.Title = "Dangky";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a align="center">
-    <br />
-    <h4>Đăng ký</h4>
-</a>
-<table align="center">
+
+<div class="dangky">
+    <h4 align="center">Đăng ký</h4>
+
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary(true)
-        <tr style="height:40px;">
-            <td> Họ Tên Khách Hàng:</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.TextBox("HotenKH")
-            </td>
-            <td>@ViewData["loi1"]</td>
 
-        </tr>
-        <tr style="height:40px">
-            <td> Tên đăng nhập:</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.TextBox("TenDN")
-            </td>
-            <td>
-                @ViewData["loi2"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Mật khẩu:</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.Password("Matkhau")
-            </td>
-            <td>
-                @ViewData["loi3"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Nhập lại mật khẩu:</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.Password("nhaplaiMK")
-            </td>
-            <td>
-                @ViewData["loi4"]
-                @ViewData["loi8"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Địa chỉ Email</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-
-                <input type="email" name="Email" />
-            </td>
-            <td>
-                @ViewData["loi5"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Địa chỉ</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.TextBox("Diachi")
-            </td>
-            <td>
-                @ViewData["loi6"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Điện thoại</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                @Html.TextBox("Dienthoai")
-            </td>
-            <td>
-                @ViewData["loi7"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Ngày sinh</td>
-            <td style="border: 1px solid #ebebeb;width:500px">
-                <input type="date" name="Ngaysinh" />
-            </td>
-        </tr>
-        <tr style="height: 40px;">
-            <td> </td>
-            <td style="border: 1px solid #ebebeb; text-align:center ">
-                <input type="submit" value="Đăng ký" />
-            </td>
-        </tr>
+        <table align="center">
+            <tr>
+                <td class="label">Họ Và Tên:</td>
+                <td class="input">
+                    @Html.TextBox("HotenKH")
+                </td>
+                <td class="error">@ViewData["loi1"]</td>
+            </tr>
+            <tr>
+                <td class="label">Tên đăng nhập:</td>
+                <td class="input">
+                    @Html.TextBox("TenDN")
+                </td>
+                <td class="error">
+                    @ViewData["loi2"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Mật khẩu:</td>
+                <td class="input">
+                    @Html.Password("Matkhau")
+                </td>
+                <td class="error">
+                    @ViewData["loi3"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Nhập lại mật khẩu:</td>
+                <td class="input">
+                    @Html.Password("nhaplaiMK")
+                </td>
+                <td class="error">
+                    @ViewData["loi4"]
+                    @ViewData["loi8"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Địa chỉ Email:</td>
+                <td class="input">
+                    <input type="email" name="Email" />
+                </td>
+                <td class="error">
+                    @ViewData["loi5"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Địa chỉ:</td>
+                <td class="input">
+                    @Html.TextBox("Diachi")
+                </td>
+                <td class="error">
+                    @ViewData["loi6"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Điện thoại:</td>
+                <td class="input">
+                    @Html.TextBox("Dienthoai")
+                </td>
+                <td class="error">
+                    @ViewData["loi7"]
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Ngày sinh:</td>
+                <td class="input">
+                    <input type="date" name="Ngaysinh" />
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <input type="submit" value="Đăng ký" />
+                </td>
+            </tr>
+        </table>
     }
-</table>
+</div>
 
+<style>
+    .dangky {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    table {
+        margin: 0 auto;
+        width: 500px;
+    }
+
+    .label {
+        width: 150px;
+        padding-right: 10px;
+        text-align: right;
+    }
+
+    .input {
+        width: 200px;
+    }
+
+    .error {
+        color: red;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="date"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>

@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Models\ChiTietDonHangViewModel.cs" />
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\SanPham_Loai.cs" />
     <Compile Include="Models\ShopData.designer.cs">
       <AutoGen>True</AutoGen>
@@ -147,6 +148,7 @@
       <DependentUpon>ShopData.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\ThongKeMatHangViewModel.cs" />
+    <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -602,6 +604,7 @@
     <Content Include="Views\Admin\HoaDon.cshtml" />
     <Content Include="Views\Admin\ChiTietHoaDon.cshtml" />
     <Content Include="Views\Admin\EditHoaDon.cshtml" />
+    <Content Include="Views\NguoiDung\DoiMatKhau.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

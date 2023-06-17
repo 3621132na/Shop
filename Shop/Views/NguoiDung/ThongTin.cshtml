@@ -1,49 +1,72 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ThongTin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="customer-info-title" style="text-align:center">Thông Tin Khách Hàng</h2>
-<table class="customer-info-table">
-    <tr>
-        <td>Tên đăng nhập:</td>
-        <td>@Model.Taikhoan</td>
-    </tr>
-    <tr>
-        <td>Họ và tên:</td>
-        <td>@Model.HoTen</td>
-    </tr>
-    <tr>
-        <td>Email:</td>
-        <td>@Model.Email</td>
-    </tr>
-    <tr>
-        <td>Địa chỉ:</td>
-        <td>@Model.DiachiKH</td>
-    </tr>
-    <tr>
-        <td>Điện thoại:</td>
-        <td>@Model.DienthoaiKH</td>
-    </tr>
-    <tr>
-        <td>Ngày sinh:</td>
-        <td>@Model.Ngaysinh.ToString("dd/MM/yyyy")</td>
-    </tr>
-</table>
+<h2 class="customer-info-title">Thông Tin Khách Hàng</h2>
+<div class="customer-info-container">
+    <form id="edit-form" action="@Url.Action("EditThongTin")" method="post">
+        <table class="customer-info-table">
+            <tr>
+                <td>Tên đăng nhập:</td>
+                <td>
+                    <input type="text" name="Taikhoan" value="@Model.Taikhoan" readonly class="no-border" data-original-value="@Model.Taikhoan" />
+                    <input type="hidden" name="Taikhoan" value="@Model.Taikhoan" />
+                </td>
+            </tr>
+            <tr>
+                <td>Họ và tên:</td>
+                <td><input type="text" name="HoTen" value="@Model.HoTen" readonly class="no-border" data-original-value="@Model.HoTen" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="Email" value="@Model.Email" readonly class="no-border" data-original-value="@Model.Email" /></td>
+            </tr>
+            <tr>
+                <td>Địa chỉ:</td>
+                <td><input type="text" name="DiachiKH" value="@Model.DiachiKH" readonly class="no-border" data-original-value="@Model.DiachiKH" /></td>
+            </tr>
+            <tr>
+                <td>Điện thoại:</td>
+                <td><input type="tel" name="DienthoaiKH" value="@Model.DienthoaiKH" readonly class="no-border" data-original-value="@Model.DienthoaiKH" /></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh:</td>
+                <td><input type="date" name="Ngaysinh" value="@Model.Ngaysinh.ToString("yyyy-MM-dd")" readonly class="no-border" data-original-value="@Model.Ngaysinh.ToString("yyyy-MM-dd")" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="save-button hidden">Lưu</button>
+                    <a href="#" class="cancel-link hidden" onclick="cancelEdit()">Hủy</a>
+                    <a href="#" class="edit-link" onclick="startEdit()">Chỉnh sửa</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 <style>
     .customer-info-title {
         font-size: 1.5rem;
         font-weight: bold;
+        text-align: center;
         margin-bottom: 1rem;
     }
 
-    .customer-info-table {
-        border-collapse: collapse;
-        width: 100%;
+    .customer-info-container {
         max-width: 600px;
         margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .customer-info-table {
+        width: 100%;
+        border-collapse: collapse;
     }
 
         .customer-info-table td {
@@ -56,7 +79,51 @@
                 width: 30%;
             }
 
-            .customer-info-table td:last-child {
-                width: 70%;
-            }
+    .hidden {
+        display: none;
+    }
+
+    .edit-link-container {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .edit-link,
+    .cancel-link {
+        text-decoration: none;
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .save-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    .no-border {
+        border: none;
+        background-color: transparent;
+        outline: none;
+    }
 </style>
+
+<script>
+    function startEdit() {
+        $('.customer-info-container input:not([name="Taikhoan"])').removeAttr('readonly').removeClass('no-border');
+        $('.save-button, .cancel-link').removeClass('hidden');
+        $('.edit-link').addClass('hidden');
+    }
+
+    function cancelEdit() {
+        $('.customer-info-container input:not([name="Taikhoan"])').each(function () {
+            var originalValue = $(this).data('original-value');
+            $(this).val(originalValue);
+            $(this).attr('readonly', 'readonly').addClass('no-border');
+        });
+        $('.save-button, .cancel-link').addClass('hidden');
+        $('.edit-link').removeClass('hidden');
+    }
+</script>
